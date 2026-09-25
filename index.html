@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- 네이버 SEO: 회사명 + 핵심 키워드 -->
   <title>LX하우시스 태흥산업 | 대구 창호 전문 시공 · 샷시 교체 · 단열 창호</title>
   <meta name="description" content="대구 창호 전문 업체 LX하우시스 태흥산업입니다. 아파트·주택·상가 창호 교체, 단열 샷시 시공, 방음 창호 설치. 무료 견적 상담.">
-  
+
   <!-- Open Graph (네이버·카카오 공유 시 표시) -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="LX하우시스 태흥산업 | 대구 창호 전문 시공">
   <meta property="og:description" content="대구 창호 전문 업체 LX하우시스 태흥산업. 아파트·주택·상가 창호 교체, 단열 샷시 시공. 무료 견적 상담.">
-  <meta property="og:url" content="https://여기에-도메인-입력.com">
-  <!-- <meta property="og:image" content="https://여기에-도메인-입력.com/og-image.jpg"> -->
+  <meta property="og:url" content="https://lxhausys-taeheung.github.io">
+  <meta property="og:image" content="https://lxhausys-taeheung.github.io/images/hero.jpg">
 
   <!-- 네이버 서치어드바이저 인증 (등록 후 발급받은 코드 입력) -->
   <!-- <meta name="naver-site-verification" content="여기에-인증코드-입력"> -->
@@ -23,285 +23,445 @@
 
   <style>
     :root {
-      --slate-900: #0f172a;
-      --slate-700: #334155;
-      --slate-500: #64748b;
-      --slate-200: #e2e8f0;
-      --slate-50: #f8fafc;
-      --blue-700: #1d4ed8;
-      --blue-600: #2563eb;
-      --blue-50: #eff6ff;
-      --amber-500: #f59e0b;
+      --ink: #14181f;
+      --ink-soft: #3a4150;
+      --grey: #6b7280;
+      --line: #e5e7eb;
+      --paper: #f7f7f5;
       --white: #ffffff;
+      --gold: #b8925a;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif;
-      color: var(--slate-700);
+      color: var(--ink-soft);
       line-height: 1.7;
       background: var(--white);
     }
 
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
     /* ── 네비게이션 ── */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--slate-200);
+      background: rgba(20,24,31,0.0);
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
     .nav-inner {
-      max-width: 1080px; margin: 0 auto;
-      padding: 0 24px;
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 28px;
       display: flex; justify-content: space-between; align-items: center;
-      height: 64px;
+      height: 72px;
     }
     .logo {
-      font-size: 1.25rem; font-weight: 700;
-      color: var(--slate-900);
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--white);
       text-decoration: none;
       letter-spacing: -0.02em;
+      transition: color 0.3s;
     }
-    .logo span { color: var(--blue-600); }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
+    nav.scrolled .logo { color: var(--ink); }
+    .logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a {
-      text-decoration: none; color: var(--slate-500);
+      text-decoration: none; color: rgba(255,255,255,0.85);
       font-size: 0.9rem; font-weight: 500;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--slate-900); }
+    nav.scrolled .nav-links a { color: var(--ink-soft); }
+    .nav-links a:hover { color: var(--gold); }
 
-    /* ── 히어로 ── */
+    /* ── 히어로: 전체화면 배경 배너 ── */
     .hero {
-      padding: 160px 24px 100px;
-      background: linear-gradient(135deg, var(--slate-900) 0%, #1e3a5f 100%);
-      color: var(--white);
+      position: relative;
+      height: 100vh;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      overflow: hidden;
+      background: #0d1117;
+    }
+    .hero img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,12,16,0.55) 0%, rgba(10,12,16,0.35) 45%, rgba(10,12,16,0.7) 100%);
+    }
+    .hero-content { position: relative; z-index: 2; color: var(--white); padding: 0 24px; }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-size: clamp(2rem, 5vw, 3.4rem);
       font-weight: 800;
       letter-spacing: -0.03em;
-      line-height: 1.3;
-      margin-bottom: 20px;
+      line-height: 1.35;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.25);
     }
-    .hero p {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.75);
-      max-width: 520px;
-      margin: 0 auto 36px;
-    }
-    .cta-btn {
+    .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
       display: inline-block;
-      padding: 14px 36px;
-      background: var(--amber-500);
-      color: var(--slate-900);
-      font-size: 1rem; font-weight: 700;
+      padding: 15px 34px;
+      font-size: 0.95rem; font-weight: 700;
       text-decoration: none;
-      border-radius: 6px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 4px;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
     }
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(245,158,11,0.3);
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(184,146,90,0.4); }
+    .btn-ghost {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.18); }
+
+    .scroll-cue {
+      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.7); font-size: 0.75rem; letter-spacing: 0.1em;
+      z-index: 2;
     }
 
     /* ── 공통 섹션 ── */
-    section { padding: 80px 24px; }
-    .container { max-width: 1080px; margin: 0 auto; }
+    section { padding: 96px 24px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-head { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+    .eyebrow {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--gold); text-transform: uppercase; margin-bottom: 12px;
+    }
     .section-title {
-      font-size: 1.6rem; font-weight: 700;
-      color: var(--slate-900);
-      margin-bottom: 12px;
+      font-size: 2rem; font-weight: 800;
+      color: var(--ink);
       letter-spacing: -0.02em;
+      margin-bottom: 14px;
     }
     .section-sub {
-      color: var(--slate-500);
-      margin-bottom: 48px;
+      color: var(--grey);
       font-size: 1rem;
     }
 
-    /* ── 서비스 ── */
-    .services { background: var(--slate-50); }
-    .service-grid {
+    /* ── 1. 제품 (창이 어떻게 생겼는지) ── */
+    .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 340px 340px;
+      gap: 12px;
     }
-    .service-card {
-      background: var(--white);
-      padding: 32px 28px;
-      border-radius: 10px;
-      border: 1px solid var(--slate-200);
-      transition: box-shadow 0.2s;
+    .product-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--paper);
     }
-    .service-card:hover {
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    .product-item.wide { grid-column: span 2; }
+    .product-item img { transition: transform 0.4s; }
+    .product-item:hover img { transform: scale(1.04); }
+    .product-caption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 18px 20px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.65), transparent);
+      color: var(--white);
+      font-size: 0.95rem; font-weight: 600;
     }
-    .service-icon {
-      width: 48px; height: 48px;
-      background: var(--blue-50);
-      border-radius: 10px;
+    .ph {
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 16px;
-    }
-    .service-card h3 {
-      font-size: 1.1rem; font-weight: 700;
-      color: var(--slate-900);
-      margin-bottom: 8px;
-    }
-    .service-card p {
-      font-size: 0.95rem;
-      color: var(--slate-500);
+      height: 100%; width: 100%;
+      color: var(--grey); font-size: 0.85rem;
+      border: 1px dashed var(--line);
+      text-align: center;
+      padding: 16px;
     }
 
-    /* ── 시공 사례 ── */
-    .gallery-grid {
+    /* ── 2. 수상/인증 ── */
+    .awards { background: var(--paper); }
+    .award-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 28px;
     }
-    .gallery-item {
-      aspect-ratio: 4/3;
-      background: var(--slate-200);
+    .award-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .award-img {
+      width: 100px; height: 100px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--paper);
+    }
+    .award-card h3 {
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .award-card p { font-size: 0.82rem; color: var(--grey); }
+
+    /* ── 3. 공장 & 자재 ── */
+    .factory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .factory-item {
+      aspect-ratio: 3/4;
       border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--slate-500);
-      font-size: 0.9rem;
+      overflow: hidden;
+      background: var(--paper);
     }
+    .factory-item:nth-child(1), .factory-item:nth-child(6) { aspect-ratio: 3/4.6; }
+
+    /* ── 신뢰 스트립 ── */
+    .trust-strip {
+      background: var(--ink);
+      color: var(--white);
+      padding: 40px 24px;
+    }
+    .trust-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      text-align: center;
+    }
+    .trust-inner div strong { display: block; font-size: 1.6rem; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+    .trust-inner div span { font-size: 0.82rem; color: rgba(255,255,255,0.7); }
 
     /* ── 연락처 ── */
-    .contact { background: var(--slate-50); }
+    .contact { background: var(--paper); }
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
     }
     .contact-item h3 {
-      font-size: 1rem; font-weight: 700;
-      color: var(--slate-900);
-      margin-bottom: 8px;
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em;
+      color: var(--gold); text-transform: uppercase;
+      margin-bottom: 10px;
     }
-    .contact-item p {
-      color: var(--slate-500);
-      font-size: 0.95rem;
-    }
-    .contact-item a {
-      color: var(--blue-600);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .contact-item a:hover { text-decoration: underline; }
+    .contact-item p { color: var(--ink-soft); font-size: 1rem; }
+    .contact-item a { color: var(--ink); text-decoration: none; font-weight: 700; }
+    .contact-item a:hover { color: var(--gold); }
 
     /* ── 푸터 ── */
     footer {
       padding: 32px 24px;
       text-align: center;
-      color: var(--slate-500);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--slate-200);
+      color: var(--grey);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--line);
     }
 
     /* ── 모바일 ── */
+    @media (max-width: 900px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+      .product-item.wide { grid-column: span 2; height: 260px; }
+      .product-grid .product-item:not(.wide) { height: 260px; }
+      .factory-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 640px) {
       .nav-links { display: none; }
-      .hero { padding: 130px 20px 70px; }
-      section { padding: 60px 20px; }
+      section { padding: 64px 20px; }
+      .section-title { font-size: 1.5rem; }
+      .product-grid { grid-template-columns: 1fr; }
+      .product-item.wide { grid-column: span 1; }
     }
   </style>
 </head>
 <body>
 
   <!-- 네비게이션 -->
-  <nav>
+  <nav id="nav">
     <div class="nav-inner">
       <a href="#" class="logo">LX하우시스 <span>태흥산업</span></a>
       <ul class="nav-links">
-        <li><a href="#services">시공 분야</a></li>
-        <li><a href="#gallery">시공 사례</a></li>
-        <li><a href="#contact">연락처</a></li>
+        <li><a href="#products">제품</a></li>
+        <li><a href="#awards">인증 · 수상</a></li>
+        <li><a href="#factory">공장 소개</a></li>
+        <li><a href="#contact">문의</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- 히어로 -->
+  <!-- 히어로: 전체 화면 배경 배너 -->
   <section class="hero">
-    <div class="container">
-      <h1>대구 창호 전문 시공<br>LX하우시스 태흥산업</h1>
-      <p>아파트·주택·상가 샷시 교체부터 단열·방음 창호 시공까지,
-         전문 기술로 시공합니다.</p>
-      <a href="tel:053-000-0000" class="cta-btn">📞 무료 견적 상담</a>
+    <!-- 사진 교체: images/hero.jpg (창호가 크게 보이는 시공 사진 또는 대표 제품 사진 권장, 1920x1080 이상) -->
+    <img src="images/hero.jpg" alt="LX하우시스 태흥산업 대표 시공 사진" onerror="this.style.display='none'">
+    <div class="hero-content">
+      <div class="hero-badge">since — · 대구 창호 제조 · 직접 시공</div>
+      <h1>공장에서 직접 만들어<br>믿을 수 있는 창호</h1>
+      <div class="hero-cta">
+        <a href="tel:053-000-0000" class="btn btn-primary">📞 전화 상담</a>
+        <a href="#products" class="btn btn-ghost">제품 보기</a>
+      </div>
     </div>
+    <div class="scroll-cue">SCROLL ▾</div>
   </section>
 
-  <!-- 시공 분야 -->
-  <section class="services" id="services">
+  <!-- 1. 제품: 창이 어떻게 생겼는지 -->
+  <section id="products">
     <div class="container">
-      <h2 class="section-title">시공 분야</h2>
-      <p class="section-sub">주거·상업 공간 모두 시공 가능합니다.</p>
-      <div class="service-grid">
-        <div class="service-card">
-          <div class="service-icon">🏠</div>
-          <h3>샷시 교체</h3>
-          <p>노후 샷시를 최신 시스템 창호로 교체합니다. 아파트, 빌라, 단독주택 모두 시공 가능.</p>
+      <div class="section-head">
+        <div class="eyebrow">Product</div>
+        <h2 class="section-title">우리가 만드는 창</h2>
+        <p class="section-sub">공장에서 직접 제작해 납품하는 창호입니다.</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-item wide">
+          <!-- 사진 교체: images/product-1.jpg (완성된 창 전체 샷) -->
+          <img src="images/product-1.jpg" alt="완성 창호 전체" onerror="this.parentElement.classList.add('img-fallback')">
+          <div class="product-caption">시스템 창호</div>
         </div>
-        <div class="service-card">
-          <div class="service-icon">🧊</div>
-          <h3>단열 창호</h3>
-          <p>이중·삼중 유리, 로이유리 등 단열 성능을 높여 냉난방비를 절감합니다.</p>
+        <div class="product-item">
+          <!-- 사진 교체: images/product-2.jpg (프레임 단면/모서리 클로즈업) -->
+          <img src="images/product-2.jpg" alt="창호 프레임 클로즈업" onerror="this.parentElement.classList.add('img-fallback')">
+          <div class="product-caption">프레임 디테일</div>
         </div>
-        <div class="service-card">
-          <div class="service-icon">🔇</div>
-          <h3>방음 시공</h3>
-          <p>도로변·철도 인근 소음 차단을 위한 방음 전용 창호를 시공합니다.</p>
+        <div class="product-item">
+          <!-- 사진 교체: images/product-3.jpg (유리/단열 구조 단면) -->
+          <img src="images/product-3.jpg" alt="단열 유리 구조" onerror="this.parentElement.classList.add('img-fallback')">
+          <div class="product-caption">단열 유리 구조</div>
         </div>
-        <div class="service-card">
-          <div class="service-icon">🏢</div>
-          <h3>상가·건물 시공</h3>
-          <p>상가, 사무실, 공장 등 상업 시설의 창호 신규 설치 및 교체.</p>
+        <div class="product-item">
+          <!-- 사진 교체: images/product-4.jpg (색상/마감 옵션) -->
+          <img src="images/product-4.jpg" alt="색상 옵션" onerror="this.parentElement.classList.add('img-fallback')">
+          <div class="product-caption">색상 · 마감 옵션</div>
+        </div>
+        <div class="product-item wide">
+          <!-- 사진 교체: images/product-5.jpg (설치 현장 / 실내에서 본 창) -->
+          <img src="images/product-5.jpg" alt="설치 현장" onerror="this.parentElement.classList.add('img-fallback')">
+          <div class="product-caption">시공 현장</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 시공 사례 -->
-  <section id="gallery">
+  <!-- 2. 인증 · 수상 -->
+  <section class="awards" id="awards">
     <div class="container">
-      <h2 class="section-title">시공 사례</h2>
-      <p class="section-sub">최근 완료한 시공 현장입니다.</p>
-      <div class="gallery-grid">
-        <div class="gallery-item">시공 사진 1</div>
-        <div class="gallery-item">시공 사진 2</div>
-        <div class="gallery-item">시공 사진 3</div>
-        <div class="gallery-item">시공 사진 4</div>
-        <div class="gallery-item">시공 사진 5</div>
-        <div class="gallery-item">시공 사진 6</div>
+      <div class="section-head">
+        <div class="eyebrow">Certification</div>
+        <h2 class="section-title">인증 · 수상</h2>
+        <p class="section-sub">품질을 인정받은 기록입니다.</p>
+      </div>
+      <div class="award-grid">
+        <div class="award-card">
+          <div class="award-img">
+            <!-- 사진 교체: images/award-1.jpg -->
+            <img src="images/award-1.jpg" alt="수상 1" onerror="this.parentElement.classList.add('img-fallback')">
+          </div>
+          <h3>수상명 입력</h3>
+          <p>발급기관 · 연도</p>
+        </div>
+        <div class="award-card">
+          <div class="award-img">
+            <!-- 사진 교체: images/award-2.jpg -->
+            <img src="images/award-2.jpg" alt="수상 2" onerror="this.parentElement.classList.add('img-fallback')">
+          </div>
+          <h3>수상명 입력</h3>
+          <p>발급기관 · 연도</p>
+        </div>
+        <div class="award-card">
+          <div class="award-img">
+            <!-- 사진 교체: images/award-3.jpg -->
+            <img src="images/award-3.jpg" alt="수상 3" onerror="this.parentElement.classList.add('img-fallback')">
+          </div>
+          <h3>수상명 입력</h3>
+          <p>발급기관 · 연도</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- 3. 공장 & 자재 -->
+  <section id="factory">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Factory</div>
+        <h2 class="section-title">공장 · 자재</h2>
+        <p class="section-sub">직접 제작하는 생산 현장입니다.</p>
+      </div>
+      <div class="factory-grid">
+        <div class="factory-item">
+          <!-- 사진 교체: images/factory-1.jpg (공장 외관/전경) -->
+          <img src="images/factory-1.jpg" alt="공장 전경" onerror="this.parentElement.classList.add('img-fallback')">
+        </div>
+        <div class="factory-item">
+          <!-- 사진 교체: images/factory-2.jpg (생산 라인) -->
+          <img src="images/factory-2.jpg" alt="생산 라인" onerror="this.parentElement.classList.add('img-fallback')">
+        </div>
+        <div class="factory-item">
+          <!-- 사진 교체: images/factory-3.jpg (자재 적재) -->
+          <img src="images/factory-3.jpg" alt="자재" onerror="this.parentElement.classList.add('img-fallback')">
+        </div>
+        <div class="factory-item">
+          <!-- 사진 교체: images/factory-4.jpg (작업 중인 모습) -->
+          <img src="images/factory-4.jpg" alt="작업 현장" onerror="this.parentElement.classList.add('img-fallback')">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 신뢰 스트립 -->
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <div><strong>—년</strong><span>업력</span></div>
+      <div><strong>LX하우시스</strong><span>공식 협력 시공</span></div>
+      <div><strong>직접 제작</strong><span>자체 공장 생산</span></div>
+      <div><strong>—건+</strong><span>누적 시공</span></div>
+    </div>
+  </div>
 
   <!-- 연락처 -->
   <section class="contact" id="contact">
     <div class="container">
-      <h2 class="section-title">연락처</h2>
-      <p class="section-sub">견적 상담은 전화 또는 방문 모두 가능합니다.</p>
+      <div class="section-head">
+        <div class="eyebrow">Contact</div>
+        <h2 class="section-title">문의</h2>
+        <p class="section-sub">전화 또는 방문 상담 모두 가능합니다.</p>
+      </div>
       <div class="contact-grid">
         <div class="contact-item">
-          <h3>📞 전화</h3>
-          <p><a href="tel:053-000-0000">053-000-0000</a></p>
-          <p><a href="tel:010-0000-0000">010-0000-0000</a></p>
+          <h3>전화</h3>
+          <p><a href="tel:055-346-7832">055-346-7832</a></p>
         </div>
         <div class="contact-item">
-          <h3>📍 주소</h3>
-          <p>대구광역시 OO구 OO로 000</p>
-          <p>OO공단 내</p>
+          <h3>주소</h3>
+          <p>경남 김해시 진영읍 김해대로 94-30</p>
         </div>
         <div class="contact-item">
-          <h3>🕐 영업시간</h3>
-          <p>평일 08:00 – 18:00</p>
-          <p>토요일 08:00 – 13:00 (일·공휴일 휴무)</p>
+          <h3>영업시간</h3>
+          <p>평일 08:00 – 19:00</p>
         </div>
       </div>
     </div>
@@ -311,6 +471,15 @@
   <footer>
     <p>© 2026 LX하우시스 태흥산업</p>
   </footer>
+
+  <script>
+    // 스크롤 시 네비게이션 배경 전환
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+  </script>
 
 </body>
 </html>
