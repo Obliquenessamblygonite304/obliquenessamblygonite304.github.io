@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- 네이버 SEO: 회사명 + 핵심 키워드 -->
-  <title>LX하우시스 태흥산업 | 대구 창호 전문 시공 · 샷시 교체 · 단열 창호</title>
-  <meta name="description" content="대구 창호 전문 업체 LX하우시스 태흥산업입니다. 아파트·주택·상가 창호 교체, 단열 샷시 시공, 방음 창호 설치. 무료 견적 상담.">
+  <title>LX하우시스 태흥산업 | 부산·경남·경북·울산 창호 전문 제조 · LX하우시스 공식 대리점</title>
+  <meta name="description" content="부산·경남·경북·울산 지역 창호 제조 전문업체 LX하우시스 태흥산업입니다. LX하우시스 공식 대리점(본사인증)으로, 공장에서 직접 제작한 단열·방음 창호를 납품합니다.">
 
   <!-- Open Graph (네이버·카카오 공유 시 표시) -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="LX하우시스 태흥산업 | 대구 창호 전문 시공">
-  <meta property="og:description" content="대구 창호 전문 업체 LX하우시스 태흥산업. 아파트·주택·상가 창호 교체, 단열 샷시 시공. 무료 견적 상담.">
+  <meta property="og:title" content="LX하우시스 태흥산업 | 부산·경남·경북·울산 창호 전문 제조">
+  <meta property="og:description" content="LX하우시스 공식 대리점(본사인증). 부산·경남·경북·울산 지역에 공장 직접 제작 창호를 납품합니다.">
   <meta property="og:url" content="https://lxhausys-taeheung.github.io">
   <meta property="og:image" content="https://lxhausys-taeheung.github.io/images/hero.jpg">
 
@@ -334,6 +334,35 @@
     .factory-grid-2 { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin: 0 auto; }
     .factory-grid-2 .factory-item { aspect-ratio: 4/3; }
 
+    .openness {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 56px;
+      border-top: 1px solid var(--line);
+    }
+    .openness-item {
+      padding: 26px 28px 0;
+      border-left: 1px solid var(--line);
+    }
+    .openness-item:first-child { border-left: none; }
+    .openness-item strong {
+      display: block; font-size: 0.98rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 8px;
+    }
+    .openness-item span { font-size: 0.88rem; color: var(--grey); }
+    @media (max-width: 900px) {
+      .openness { grid-template-columns: repeat(2, 1fr); }
+      .openness-item:nth-child(2) { border-left: 1px solid var(--line); }
+      .openness-item:nth-child(3) { border-left: none; border-top: 1px solid var(--line); padding-top: 22px; }
+      .openness-item:nth-child(4) { border-top: 1px solid var(--line); padding-top: 22px; }
+    }
+    @media (max-width: 560px) {
+      .openness { grid-template-columns: 1fr; }
+      .openness-item { border-left: none !important; border-top: 1px solid var(--line); padding: 22px 0 0; }
+      .openness-item:first-child { border-top: none; }
+    }
+
     /* ── 신뢰 스트립 ── */
     .trust-strip {
       background: var(--ink);
@@ -449,7 +478,7 @@
       <a href="#" class="logo">LX하우시스 <span>태흥산업</span></a>
       <ul class="nav-links">
         <li><a href="#products">제품</a></li>
-        <li><a href="#before-after">시공 전후</a></li>
+        <li><a href="#before-after">교체 전후</a></li>
         <li><a href="#factory">공장 소개</a></li>
         <li><a href="#contact">문의</a></li>
       </ul>
@@ -459,17 +488,17 @@
   <!-- 히어로: 전체 화면 배경 배너 (사진 슬라이드) -->
   <section class="hero" id="hero">
     <div class="hero-slide active">
-      <img src="images/hero.jpg" alt="LX하우시스 태흥산업 대표 시공 사진 1" onerror="this.parentElement.style.display='none'">
+      <img src="images/hero.jpg" alt="LX하우시스 태흥산업 대표 제품 사진 1" onerror="this.parentElement.style.display='none'">
     </div>
     <div class="hero-slide">
-      <img src="images/hero2.jpg" alt="LX하우시스 태흥산업 대표 시공 사진 2" onerror="this.parentElement.style.display='none'">
+      <img src="images/hero2.jpg" alt="LX하우시스 태흥산업 대표 제품 사진 2" onerror="this.parentElement.style.display='none'">
     </div>
 
     <button class="hero-arrow prev" aria-label="이전 사진" onclick="heroSlide(-1)">‹</button>
     <button class="hero-arrow next" aria-label="다음 사진" onclick="heroSlide(1)">›</button>
 
     <div class="hero-content">
-      <div class="hero-badge">since 2014 · 경남 김해 창호 제조 · 직접 시공</div>
+      <div class="hero-badge">since 2014 · 부산·경남·경북·울산 납품 · LX하우시스 공식 대리점</div>
       <h1>공장에서 직접 만들어<br>믿을 수 있는 창호</h1>
       <div class="hero-cta">
         <a href="tel:055-346-7832" class="btn btn-primary">
@@ -492,9 +521,9 @@
   <div class="trust-strip">
     <div class="trust-inner">
       <div><strong>2014년~</strong><span>업력</span></div>
-      <div><strong>LX하우시스</strong><span>공식 협력 시공</span></div>
+      <div><strong>LX하우시스</strong><span>공식 대리점 (본사인증)</span></div>
       <div><strong>직접 제작</strong><span>자체 공장 생산</span></div>
-      <div><strong>2,000세대+</strong><span>누적 샷시 교체</span></div>
+      <div><strong>2,000세대+</strong><span>누적 창호 교체</span></div>
     </div>
   </div>
 
@@ -523,26 +552,26 @@
     </div>
   </section>
 
-  <!-- 2. 시공 전후 (Before / After) -->
+  <!-- 2. 교체 전후 (Before / After) -->
   <section class="before-after" id="before-after">
     <div class="container">
       <div class="section-head">
         <span class="section-num">02</span>
         <div class="section-head-text">
           <div class="eyebrow">Before · After</div>
-          <h2 class="section-title">시공 전후</h2>
-          <p class="section-sub">교체 전후를 비교해보세요. 사진 확보되는 대로 채워집니다.</p>
+          <h2 class="section-title">교체 전후</h2>
+          <p class="section-sub">기존 창호와 교체 후를 비교해보세요. 사진 확보되는 대로 채워집니다.</p>
         </div>
       </div>
       <div class="ba-grid">
         <div class="ba-card">
           <div class="ba-images">
             <div class="ba-half">
-              <img src="images/before-1.jpg" alt="시공 전" onerror="this.parentElement.classList.add('img-fallback')">
+              <img src="images/before-1.jpg" alt="교체 전" onerror="this.parentElement.classList.add('img-fallback')">
               <span class="ba-tag">BEFORE</span>
             </div>
             <div class="ba-half">
-              <img src="images/after-1.jpg" alt="시공 후" onerror="this.parentElement.classList.add('img-fallback')">
+              <img src="images/after-1.jpg" alt="교체 후" onerror="this.parentElement.classList.add('img-fallback')">
               <span class="ba-tag ba-tag-after">AFTER</span>
             </div>
           </div>
@@ -553,7 +582,7 @@
     </div>
   </section>
 
-  <!-- 3. 인증 · 수상 -->
+  <!-- 인증·수상 섹션: 필요해지면 아래 블록을 복원하세요 (award-1~3.jpg 필요)
   <section class="awards" id="awards">
     <div class="container">
       <div class="section-head">
@@ -561,34 +590,35 @@
         <div class="section-head-text">
           <div class="eyebrow">Certification</div>
           <h2 class="section-title">인증 · 수상</h2>
-          <p class="section-sub">품질을 인정받은 기록입니다. 사진 확보되는 대로 채워집니다.</p>
+          <p class="section-sub">품질을 인정받은 기록입니다.</p>
         </div>
       </div>
       <div class="award-grid">
         <div class="award-card">
-          <div class="award-img"><img src="images/award-1.jpg" alt="수상 1" onerror="this.parentElement.classList.add('img-fallback')"></div>
+          <div class="award-img"><img src="images/award-1.jpg" alt="수상 1"></div>
           <h3>수상명 입력</h3>
           <p>발급기관 · 연도</p>
         </div>
         <div class="award-card">
-          <div class="award-img"><img src="images/award-2.jpg" alt="수상 2" onerror="this.parentElement.classList.add('img-fallback')"></div>
+          <div class="award-img"><img src="images/award-2.jpg" alt="수상 2"></div>
           <h3>수상명 입력</h3>
           <p>발급기관 · 연도</p>
         </div>
         <div class="award-card">
-          <div class="award-img"><img src="images/award-3.jpg" alt="수상 3" onerror="this.parentElement.classList.add('img-fallback')"></div>
+          <div class="award-img"><img src="images/award-3.jpg" alt="수상 3"></div>
           <h3>수상명 입력</h3>
           <p>발급기관 · 연도</p>
         </div>
       </div>
     </div>
   </section>
+  -->
 
-  <!-- 4. 공장 & 자재 -->
+  <!-- 3. 공장 & 자재 -->
   <section id="factory">
     <div class="container">
       <div class="section-head">
-        <span class="section-num">04</span>
+        <span class="section-num">03</span>
         <div class="section-head-text">
           <div class="eyebrow">Factory</div>
           <h2 class="section-title">공장 · 자재</h2>
@@ -608,6 +638,25 @@
           <img src="images/factory-3.jpg" alt="생산 라인">
         </div>
         -->
+      </div>
+
+      <div class="openness reveal">
+        <div class="openness-item">
+          <strong>창호 제작 시방서 준수</strong>
+          <span>정해진 시방서 기준에 따라 정확하게 제작합니다.</span>
+        </div>
+        <div class="openness-item">
+          <strong>제작 공정 전면 공개</strong>
+          <span>원자재부터 완성까지, 숨기는 과정 없이 보여드립니다.</span>
+        </div>
+        <div class="openness-item">
+          <strong>대면 · 비대면 상담</strong>
+          <span>전화·방문 모두 편하신 방식으로 친절하게 안내해드립니다.</span>
+        </div>
+        <div class="openness-item">
+          <strong>공장 방문 견학 환영</strong>
+          <span>제작 과정을 직접 보고 싶으시면 언제든 방문해주세요.</span>
+        </div>
       </div>
     </div>
   </section>
@@ -688,7 +737,7 @@
     if (heroSlides.length > 1) resetHeroTimer();
 
     // 스크롤 시 섹션 페이드인
-    const revealEls = document.querySelectorAll('.section-head, .product-grid, .factory-grid, .contact-grid, .map-wrap, .ba-grid, .award-grid');
+    const revealEls = document.querySelectorAll('.section-head, .product-grid, .factory-grid, .contact-grid, .map-wrap, .ba-grid, .award-grid, .openness');
     revealEls.forEach(el => el.classList.add('reveal'));
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
