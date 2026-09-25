@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- 네이버 SEO: 회사명 + 핵심 키워드 -->
+  <title>LX하우시스 태흥산업 | 대구 창호 전문 시공 · 샷시 교체 · 단열 창호</title>
+  <meta name="description" content="대구 창호 전문 업체 LX하우시스 태흥산업입니다. 아파트·주택·상가 창호 교체, 단열 샷시 시공, 방음 창호 설치. 무료 견적 상담.">
+  
+  <!-- Open Graph (네이버·카카오 공유 시 표시) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LX하우시스 태흥산업 | 대구 창호 전문 시공">
+  <meta property="og:description" content="대구 창호 전문 업체 LX하우시스 태흥산업. 아파트·주택·상가 창호 교체, 단열 샷시 시공. 무료 견적 상담.">
+  <meta property="og:url" content="https://여기에-도메인-입력.com">
+  <!-- <meta property="og:image" content="https://여기에-도메인-입력.com/og-image.jpg"> -->
+
+  <!-- 네이버 서치어드바이저 인증 (등록 후 발급받은 코드 입력) -->
+  <!-- <meta name="naver-site-verification" content="여기에-인증코드-입력"> -->
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --slate-900: #0f172a;
+      --slate-700: #334155;
+      --slate-500: #64748b;
+      --slate-200: #e2e8f0;
+      --slate-50: #f8fafc;
+      --blue-700: #1d4ed8;
+      --blue-600: #2563eb;
+      --blue-50: #eff6ff;
+      --amber-500: #f59e0b;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif;
+      color: var(--slate-700);
+      line-height: 1.7;
+      background: var(--white);
+    }
+
+    /* ── 네비게이션 ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .nav-inner {
+      max-width: 1080px; margin: 0 auto;
+      padding: 0 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      height: 64px;
+    }
+    .logo {
+      font-size: 1.25rem; font-weight: 700;
+      color: var(--slate-900);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--blue-600); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--slate-500);
+      font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--slate-900); }
+
+    /* ── 히어로 ── */
+    .hero {
+      padding: 160px 24px 100px;
+      background: linear-gradient(135deg, var(--slate-900) 0%, #1e3a5f 100%);
+      color: var(--white);
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background: var(--amber-500);
+      color: var(--slate-900);
+      font-size: 1rem; font-weight: 700;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(245,158,11,0.3);
+    }
+
+    /* ── 공통 섹션 ── */
+    section { padding: 80px 24px; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-title {
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--slate-900);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      color: var(--slate-500);
+      margin-bottom: 48px;
+      font-size: 1rem;
+    }
+
+    /* ── 서비스 ── */
+    .services { background: var(--slate-50); }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--white);
+      padding: 32px 28px;
+      border-radius: 10px;
+      border: 1px solid var(--slate-200);
+      transition: box-shadow 0.2s;
+    }
+    .service-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: var(--blue-50);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    .service-card h3 {
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--slate-900);
+      margin-bottom: 8px;
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      color: var(--slate-500);
+    }
+
+    /* ── 시공 사례 ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .gallery-item {
+      aspect-ratio: 4/3;
+      background: var(--slate-200);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--slate-500);
+      font-size: 0.9rem;
+    }
+
+    /* ── 연락처 ── */
+    .contact { background: var(--slate-50); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+    .contact-item h3 {
+      font-size: 1rem; font-weight: 700;
+      color: var(--slate-900);
+      margin-bottom: 8px;
+    }
+    .contact-item p {
+      color: var(--slate-500);
+      font-size: 0.95rem;
+    }
+    .contact-item a {
+      color: var(--blue-600);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* ── 푸터 ── */
+    footer {
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--slate-500);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--slate-200);
+    }
+
+    /* ── 모바일 ── */
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero { padding: 130px 20px 70px; }
+      section { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 네비게이션 -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">LX하우시스 <span>태흥산업</span></a>
+      <ul class="nav-links">
+        <li><a href="#services">시공 분야</a></li>
+        <li><a href="#gallery">시공 사례</a></li>
+        <li><a href="#contact">연락처</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 히어로 -->
+  <section class="hero">
+    <div class="container">
+      <h1>대구 창호 전문 시공<br>LX하우시스 태흥산업</h1>
+      <p>아파트·주택·상가 샷시 교체부터 단열·방음 창호 시공까지,
+         전문 기술로 시공합니다.</p>
+      <a href="tel:053-000-0000" class="cta-btn">📞 무료 견적 상담</a>
+    </div>
+  </section>
+
+  <!-- 시공 분야 -->
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title">시공 분야</h2>
+      <p class="section-sub">주거·상업 공간 모두 시공 가능합니다.</p>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>샷시 교체</h3>
+          <p>노후 샷시를 최신 시스템 창호로 교체합니다. 아파트, 빌라, 단독주택 모두 시공 가능.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🧊</div>
+          <h3>단열 창호</h3>
+          <p>이중·삼중 유리, 로이유리 등 단열 성능을 높여 냉난방비를 절감합니다.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔇</div>
+          <h3>방음 시공</h3>
+          <p>도로변·철도 인근 소음 차단을 위한 방음 전용 창호를 시공합니다.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3>상가·건물 시공</h3>
+          <p>상가, 사무실, 공장 등 상업 시설의 창호 신규 설치 및 교체.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 시공 사례 -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">시공 사례</h2>
+      <p class="section-sub">최근 완료한 시공 현장입니다.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">시공 사진 1</div>
+        <div class="gallery-item">시공 사진 2</div>
+        <div class="gallery-item">시공 사진 3</div>
+        <div class="gallery-item">시공 사진 4</div>
+        <div class="gallery-item">시공 사진 5</div>
+        <div class="gallery-item">시공 사진 6</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 연락처 -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">연락처</h2>
+      <p class="section-sub">견적 상담은 전화 또는 방문 모두 가능합니다.</p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <h3>📞 전화</h3>
+          <p><a href="tel:053-000-0000">053-000-0000</a></p>
+          <p><a href="tel:010-0000-0000">010-0000-0000</a></p>
+        </div>
+        <div class="contact-item">
+          <h3>📍 주소</h3>
+          <p>대구광역시 OO구 OO로 000</p>
+          <p>OO공단 내</p>
+        </div>
+        <div class="contact-item">
+          <h3>🕐 영업시간</h3>
+          <p>평일 08:00 – 18:00</p>
+          <p>토요일 08:00 – 13:00 (일·공휴일 휴무)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <p>© 2026 LX하우시스 태흥산업</p>
+  </footer>
+
+</body>
+</html>
