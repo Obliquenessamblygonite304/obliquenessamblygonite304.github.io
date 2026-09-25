@@ -64,14 +64,16 @@
       height: 72px;
     }
     .logo {
-      font-size: 1.15rem; font-weight: 700;
+      font-size: 1.2rem; font-weight: 800;
       color: var(--white);
       text-decoration: none;
       letter-spacing: -0.02em;
-      transition: color 0.3s;
+      transition: color 0.3s, text-shadow 0.3s;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.55), 0 1px 2px rgba(0,0,0,0.5);
     }
-    nav.scrolled .logo { color: var(--ink); }
-    .logo span { color: var(--gold); }
+    nav.scrolled .logo { color: var(--ink); text-shadow: none; }
+    .logo span { color: #e4b877; font-weight: 800; }
+    nav.scrolled .logo span { color: var(--gold); }
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a {
       text-decoration: none; color: rgba(255,255,255,0.85);
@@ -100,14 +102,14 @@
     .hero-slide img {
       width: 100%; height: 100%;
       object-fit: cover;
-      transform: scale(1.06);
-      transition: transform 8s ease;
+      transform: scale(1.02);
+      transition: transform 10s ease;
     }
     .hero-slide.active img { transform: scale(1); }
     .hero::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(0deg, rgba(8,9,12,0.82) 0%, rgba(8,9,12,0.15) 42%, rgba(8,9,12,0.05) 65%, transparent 85%);
+      background: linear-gradient(0deg, rgba(8,9,12,0.68) 0%, rgba(8,9,12,0.08) 38%, transparent 60%);
       z-index: 1;
     }
     .hero-dots {
@@ -289,6 +291,33 @@
     }
     .award-card p { font-size: 0.82rem; color: var(--grey); }
 
+    /* ── 시공 전후 ── */
+    .ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 28px; }
+    .ba-card { background: var(--paper); border-radius: var(--radius); overflow: hidden; }
+    .ba-images { display: grid; grid-template-columns: 1fr 1fr; aspect-ratio: 16/6; }
+    .ba-half { position: relative; overflow: hidden; background: var(--white); border-left: 1px solid var(--white); }
+    .ba-half:first-child { border-left: none; }
+    .ba-tag {
+      position: absolute; top: 10px; left: 10px;
+      background: rgba(20,24,31,0.75); color: var(--white);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+      padding: 4px 10px; border-radius: var(--radius);
+    }
+    .ba-tag-after { background: var(--gold); }
+    .ba-caption { padding: 14px 18px; font-size: 0.88rem; color: var(--ink-soft); font-weight: 600; }
+
+    /* ── 사진 없을 때 대체 표시 ── */
+    .img-fallback { position: relative; }
+    .img-fallback img { opacity: 0; }
+    .img-fallback::after {
+      content: '사진 준비 중';
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--grey); font-size: 0.8rem;
+      background: var(--paper);
+      border: 1px dashed var(--line);
+    }
+
     /* ── 3. 공장 & 자재 ── */
     .factory-grid {
       display: grid;
@@ -349,24 +378,28 @@
     .contact-item a { color: var(--ink); text-decoration: none; font-weight: 700; }
     .contact-item a:hover { color: var(--gold); }
     .map-wrap {
-      display: block;
+      position: relative;
       max-width: 900px; margin: 48px auto 0;
-      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 16/7;
     }
-    .map-card {
-      display: flex; align-items: center; gap: 18px;
-      padding: 22px 26px;
+    .map-frame { width: 100%; height: 100%; border: 0; pointer-events: none; }
+    .map-open {
+      position: absolute; right: 14px; bottom: 14px;
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      transition: border-color 0.2s, background 0.2s;
+      padding: 10px 16px;
+      font-size: 0.82rem; font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      transition: border-color 0.2s, color 0.2s;
     }
-    .map-wrap:hover .map-card { border-color: var(--gold); background: var(--paper); }
-    .map-icon { font-size: 1.4rem; }
-    .map-text { display: flex; flex-direction: column; gap: 3px; text-align: left; flex: 1; }
-    .map-text strong { color: var(--ink); font-size: 0.98rem; font-weight: 700; }
-    .map-text span { color: var(--grey); font-size: 0.85rem; }
-    .map-arrow { color: var(--gold); font-size: 1.1rem; }
+    .map-open:hover { border-color: var(--gold); color: var(--gold); }
+    @media (max-width: 640px) { .map-wrap { aspect-ratio: 4/3; } }
 
     /* ── 푸터 ── */
     footer {
@@ -392,6 +425,7 @@
       .factory-grid { grid-template-columns: repeat(2, 1fr); }
       .product-grid-single { grid-template-rows: auto; }
       .product-grid-single .product-item.wide { height: 320px; }
+      .ba-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .nav-links { display: none; }
@@ -400,6 +434,7 @@
       .section-head { flex-direction: column; gap: 8px; align-items: flex-start; }
       .product-grid { grid-template-columns: 1fr; }
       .product-item.wide { grid-column: span 1; }
+      .ba-images { aspect-ratio: 16/9; }
       .hero-content { padding-bottom: 64px; }
       .hero h1 { max-width: none; }
     }
@@ -413,6 +448,7 @@
       <a href="#" class="logo">LX하우시스 <span>태흥산업</span></a>
       <ul class="nav-links">
         <li><a href="#products">제품</a></li>
+        <li><a href="#before-after">시공 전후</a></li>
         <li><a href="#factory">공장 소개</a></li>
         <li><a href="#contact">문의</a></li>
       </ul>
@@ -486,40 +522,72 @@
     </div>
   </section>
 
-  <!-- 인증·수상 섹션: 사진 확보되면 아래 블록을 복원하세요 (award-1~3.jpg 필요)
+  <!-- 2. 시공 전후 (Before / After) -->
+  <section class="before-after" id="before-after">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <div class="section-head-text">
+          <div class="eyebrow">Before · After</div>
+          <h2 class="section-title">시공 전후</h2>
+          <p class="section-sub">교체 전후를 비교해보세요. 사진 확보되는 대로 채워집니다.</p>
+        </div>
+      </div>
+      <div class="ba-grid">
+        <div class="ba-card">
+          <div class="ba-images">
+            <div class="ba-half">
+              <img src="images/before-1.jpg" alt="시공 전" onerror="this.parentElement.classList.add('img-fallback')">
+              <span class="ba-tag">BEFORE</span>
+            </div>
+            <div class="ba-half">
+              <img src="images/after-1.jpg" alt="시공 후" onerror="this.parentElement.classList.add('img-fallback')">
+              <span class="ba-tag ba-tag-after">AFTER</span>
+            </div>
+          </div>
+          <p class="ba-caption">현장명 입력</p>
+        </div>
+        <!-- 사례가 더 생기면 위 ba-card 블록을 복제해 추가하세요 (before-2.jpg / after-2.jpg 등) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 인증 · 수상 -->
   <section class="awards" id="awards">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow">Certification</div>
-        <h2 class="section-title">인증 · 수상</h2>
-        <p class="section-sub">품질을 인정받은 기록입니다.</p>
+        <span class="section-num">03</span>
+        <div class="section-head-text">
+          <div class="eyebrow">Certification</div>
+          <h2 class="section-title">인증 · 수상</h2>
+          <p class="section-sub">품질을 인정받은 기록입니다. 사진 확보되는 대로 채워집니다.</p>
+        </div>
       </div>
       <div class="award-grid">
         <div class="award-card">
-          <div class="award-img"><img src="images/award-1.jpg" alt="수상 1"></div>
+          <div class="award-img"><img src="images/award-1.jpg" alt="수상 1" onerror="this.parentElement.classList.add('img-fallback')"></div>
           <h3>수상명 입력</h3>
           <p>발급기관 · 연도</p>
         </div>
         <div class="award-card">
-          <div class="award-img"><img src="images/award-2.jpg" alt="수상 2"></div>
+          <div class="award-img"><img src="images/award-2.jpg" alt="수상 2" onerror="this.parentElement.classList.add('img-fallback')"></div>
           <h3>수상명 입력</h3>
           <p>발급기관 · 연도</p>
         </div>
         <div class="award-card">
-          <div class="award-img"><img src="images/award-3.jpg" alt="수상 3"></div>
+          <div class="award-img"><img src="images/award-3.jpg" alt="수상 3" onerror="this.parentElement.classList.add('img-fallback')"></div>
           <h3>수상명 입력</h3>
           <p>발급기관 · 연도</p>
         </div>
       </div>
     </div>
   </section>
-  -->
 
-  <!-- 3. 공장 & 자재 -->
+  <!-- 4. 공장 & 자재 -->
   <section id="factory">
     <div class="container">
       <div class="section-head">
-        <span class="section-num">02</span>
+        <span class="section-num">04</span>
         <div class="section-head-text">
           <div class="eyebrow">Factory</div>
           <h2 class="section-title">공장 · 자재</h2>
@@ -565,16 +633,17 @@
           <p>평일 08:00 – 19:00</p>
         </div>
       </div>
-      <a class="map-wrap reveal" href="https://map.naver.com/p/search/%EA%B2%BD%EB%82%A8%20%EA%B9%80%ED%95%B4%EC%8B%9C%20%EC%A7%84%EC%98%81%EC%9D%8D%20%EA%B9%80%ED%95%B4%EB%8C%80%EB%A1%9C%2094-30" target="_blank" rel="noopener">
-        <div class="map-card">
-          <span class="map-icon">📍</span>
-          <span class="map-text">
-            <strong>네이버 지도에서 보기</strong>
-            <span>경남 김해시 진영읍 김해대로 94-30</span>
-          </span>
-          <span class="map-arrow">↗</span>
-        </div>
-      </a>
+      <div class="map-wrap reveal">
+        <iframe
+          class="map-frame"
+          src="https://maps.google.com/maps?q=%EA%B2%BD%EB%82%A8%20%EA%B9%80%ED%95%B4%EC%8B%9C%20%EC%A7%84%EC%98%81%EC%9D%8D%20%EA%B9%80%ED%95%B4%EB%8C%80%EB%A1%9C%2094-30&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <a class="map-open" href="https://map.naver.com/p/search/%EA%B2%BD%EB%82%A8%20%EA%B9%80%ED%95%B4%EC%8B%9C%20%EC%A7%84%EC%98%81%EC%9D%8D%20%EA%B9%80%ED%95%B4%EB%8C%80%EB%A1%9C%2094-30" target="_blank" rel="noopener">
+          네이버 지도에서 크게 보기 ↗
+        </a>
+      </div>
     </div>
   </section>
 
@@ -618,7 +687,7 @@
     if (heroSlides.length > 1) resetHeroTimer();
 
     // 스크롤 시 섹션 페이드인
-    const revealEls = document.querySelectorAll('.section-head, .product-grid, .factory-grid, .contact-grid, .map-wrap');
+    const revealEls = document.querySelectorAll('.section-head, .product-grid, .factory-grid, .contact-grid, .map-wrap, .ba-grid, .award-grid');
     revealEls.forEach(el => el.classList.add('reveal'));
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
